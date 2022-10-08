@@ -1,11 +1,11 @@
-## Visual Studio Code guys
+## Visual Studio Code
 Install the extensions
 * [Ruby Debug](https://marketplace.visualstudio.com/items?itemName=castwide.ruby-debug)
 * [Tasks](https://marketplace.visualstudio.com/items?itemName=actboy168.tasks)
 
 Then you should be able to see a list of prepared tasks for creating and running new ROR application like in the screenshot
 
-![image info](./meida/tasks_list_in_vs_code.png)
+![image info](./media/tasks_list_in_vs_code.png)
 
 Here is the meaning of the tasks:
 * `Init new project` - use this task just once to initialize a new project

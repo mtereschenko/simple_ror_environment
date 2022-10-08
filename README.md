@@ -19,9 +19,9 @@ cd simple_ror_environment && rm -rf .git
 ```
 
 ## Usage
-* [VSCode guys](./guides/visual_studio_code.md)
-* [RubyMine guys](./guides/ruby_mine.md)
-* [Console guys](./guides/console.md)
+* [VSCode](./guides/visual_studio_code.md)
+* [RubyMines](./guides/ruby_mine.md)
+* [Console](./guides/console.md)
 
 ### Deployment and stages for your project
 [Read here](./guides/stages.md)
