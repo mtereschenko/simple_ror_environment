@@ -1,4 +1,4 @@
-## Console guys
+## Console
 
 * Open a new terminal window and CD to your projects directory
   ```bash

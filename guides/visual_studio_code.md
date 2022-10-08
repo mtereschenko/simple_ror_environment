@@ -1,4 +1,4 @@
-## Visual Studio Code guys
+## Visual Studio Code
 Install the extensions
 * [Ruby Debug](https://marketplace.visualstudio.com/items?itemName=castwide.ruby-debug)
 * [Tasks](https://marketplace.visualstudio.com/items?itemName=actboy168.tasks)
