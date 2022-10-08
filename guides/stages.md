@@ -22,7 +22,7 @@ In the ./environment directory you can find `docker-compose.development.yml` fil
   ```
 
 Example of stages
-![image info](./meida/dockerfile_stages.png)
+![image info](./media/dockerfile_stages.png)
 
 Container names
-![image info](./meida/container_names.png)
+![image info](./media/container_names.png)
