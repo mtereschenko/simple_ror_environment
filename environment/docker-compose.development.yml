@@ -1,0 +1,53 @@
+version: '3.7'
+services:
+  nginx:
+    image: "${PROJECT_NAME}/nginx:development"
+    container_name: ${PROJECT_NAME}-nginx
+    build: 
+      context: ./
+      dockerfile: ./containers/nginx/Dockerfile
+    depends_on:
+      - ruby
+    tty: true
+    ports:
+      - 80:80
+    volumes:
+      - ./artifacts/nginx/:/var/log/nginx:cached
+  ruby:
+    image: "${PROJECT_NAME}/ruby:development"
+    container_name: ${PROJECT_NAME}-ruby
+    depends_on:
+      - postgres
+    build:
+      context: ./
+      dockerfile: ./containers/ruby/Dockerfile
+      target: development
+    ports:
+      - 13030:13030
+    volumes:
+      - ${APP_PATH}:/app:cached
+    environment:
+      DB_NAME: ${DB_NAME}
+      PROJECT_NAME: ${PROJECT_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_PORT: ${DB_PORT}
+      PUMA_WORKERS: 0
+      RAILS_MAX_THREADS: 1
+  postgres:
+    image: "${PROJECT_NAME}/postgres:development"
+    container_name: ${PROJECT_NAME}-postgres
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    build:
+      context: ./
+      dockerfile: ./containers/postgres/Dockerfile
+    ports:
+      - ${DB_PORT}:5432
+    volumes:
+      - test_project123123_db_volume:/var/lib/postgresql/data
+
+volumes:
+  test_project123123_db_volume:

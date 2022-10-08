@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Init new project",
+      "type": "shell",
+      "command": "cd ${workspaceRoot}/environment && make init",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "options": {
+        "statusbar": {
+          "label": "Init new project"
+        }
+      }
+    },
+    {
+      "label": "Build environment",
+      "type": "shell",
+      "command": "cd ${workspaceRoot}/environment && make build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "options": {
+        "statusbar": {
+          "label": "Build environment"
+        }
+      }
+    },
+    {
+      "label": "Run environment",
+      "type": "shell",
+      "command": "cd ${workspaceRoot}/environment && make start && make run",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "options": {
+        "statusbar": {
+          "label": "Run environment"
+        }
+      }
+    },
+    {
+      "label": "Run shell ruby",
+      "type": "shell",
+      "command": "cd ${workspaceRoot}/environment && make shell",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "options": {
+        "statusbar": {
+          "label": "Run shell ruby"
+        }
+      }
+    },
+    {
+      "label": "Stop environment",
+      "type": "shell",
+      "command": "cd ${workspaceRoot}/environment && make stop",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "options": {
+        "statusbar": {
+          "label": "Stop environment"
+        }
+      }
+    }
+  ]
+}
