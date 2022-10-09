@@ -32,7 +32,7 @@ build: ## Build images.
 	@cp ${APP_PATH}/Gemfile.lock "${ARTIFACTS_DIRECTORY}/rails/Gemfile.lock"
 	@docker-compose -f docker-compose.$(BUILD_TARGET).yml build
 
-shell: ## Internal image bash comand line.
+shell: ## Internal image bash command line.
 	@if [[ -z `docker ps | grep ${SHELL_CONTAINER_NAME}` ]]; then \
 		echo "${SHELL_CONTAINER_NAME} is NOT running (make start)."; \
 	else \
@@ -45,8 +45,8 @@ start: ## Start previously builded application images.
 	@make start_ruby
 	@make start_nginx
 
-run:
-	@docker-compose -f docker-compose.$(BUILD_TARGET).yml exec ${SHELL_CONTAINER_NAME} /bin/ash /rdebug_ide/runner.sh
+run: ## Run ruby debugger session.
+	@docker-compose -f docker-compose.$(BUILD_TARGET).yml exec ruby /bin/ash /rdebug_ide/runner.sh
 
 start_ruby: ## Start ruby image.
 	@if [[ -z `docker ps | grep ruby` ]]; then \
