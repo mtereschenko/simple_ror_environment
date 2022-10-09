@@ -47,7 +47,7 @@ services:
     ports:
       - ${DB_PORT}:5432
     volumes:
-      - test_project123123_db_volume:/var/lib/postgresql/data
+      - postgres_volume:/var/lib/postgresql/data
 
 volumes:
-  test_project123123_db_volume:
+  postgres_volume:
