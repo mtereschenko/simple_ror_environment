@@ -1,6 +1,6 @@
 ## Environment stages
 In the ./environment directory you can find `docker-compose.development.yml` file. If you need some other environment you are able to do so with next steps:
-* create `docker-compose.${env_name}.yml` and configure it by your project needs. 
+* Create `docker-compose.${env_name}.yml` and configure it by your project needs. 
 * In ./environment/containers you'll find three initial containers. In those directories you will find Dockerfile files with described stages. Create your own stage.
 * Build your stage 
   ```bash

@@ -5,12 +5,12 @@
   cd ${PROJECT_PATH}/environment
   ```
 
-* Use this command just once to initialize a new project
+* Use this command just once to initialize a new project.
   ```bash
   make init
   ```
 
-* This command builds the environment. Use it when you need to build the environment changes or when you need to commit your changes in Gemfile in your environment.
+* This command updates the environment or your Gemfile changes.
   ```bash
   make build
   ```
@@ -20,7 +20,7 @@
   make start
   ```
 
-* This command teleports you to the command shell where you can execute **rails**, **rake**, **bundle**, etc. commands.
+* This command "teleports" you to the command shell where you can execute **rails**, **rake**, **bundle**, etc. commands.
   ```bash
   make shell
   ```

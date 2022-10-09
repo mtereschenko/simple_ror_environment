@@ -8,10 +8,10 @@ Then you should be able to see a list of prepared tasks for creating and running
 ![image info](./media/tasks_list_in_vs_code.png)
 
 Here is the meaning of the tasks:
-* `Init new project` - use this task just once to initialize a new project
-* `Build environment` - this task builds the environment. Use it when you need to build the environment changes or when you need to commit your changes in Gemfile in your environment.
-* `Run environment` - this task runs the environment. Use it when you need to run the project also this task starts the debugger session and waits for the debugger connection. Read more about debugger [here](https://github.com/rubyide/vscode-ruby/wiki/3.-Attaching-to-a-debugger) 
-* `Run shell ruby` - this task teleports you to the command shell  where you can execute **rails**, **rake**, **bundle**, etc. commands.
+* `Init new project` - use this task just once to initialize a new project.
+* `Build environment` - use it when you need to update the environment or you commit to Gemfile.
+* `Run environment` - this task runs the environment. Also it starts a debugger session and waits for connection. More info about debugger [here](https://github.com/rubyide/vscode-ruby/wiki/3.-Attaching-to-a-debugger) 
+* `Run shell ruby` - this task "teleports" you to the command shell where you can execute **rails**, **rake**, **bundle**, etc. commands.
 * `Stop environment` - this task stops the environment.
 
 By default, your app will be initialized in ./application directory. But you can change it for any other you like in the .env.example file which is in the ./environment directory.
