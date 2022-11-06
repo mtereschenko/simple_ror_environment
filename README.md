@@ -6,7 +6,7 @@
 * [docker (19.03.12 or later)](https://docs.docker.com/engine/install/)
 * [docker-compose (1.26.0 or later)](https://docs.docker.com/compose/install/)
 
-## [Wiki](https://github.com/mtereschenko/simple_ror_environment/wiki)
+## [Wiki](https://github.com/mtereschenko/simple_ror_environment/wiki) in process...
 
 ## Install
 
