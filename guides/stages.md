@@ -18,7 +18,7 @@ In the ./environment directory you can find `docker-compose.development.yml` fil
   #For example, when you are running the following command
   make shell
   #it's the same as
-  make shell t=development c=ruby
+  make shell t=development c=node
   ```
 
 Example of stages

@@ -44,7 +44,7 @@
       }
     },
     {
-      "label": "Run shell ruby",
+      "label": "Run shell node",
       "type": "shell",
       "command": "cd ${workspaceRoot}/environment && make shell",
       "presentation": {
@@ -53,7 +53,7 @@
       },
       "options": {
         "statusbar": {
-          "label": "Run shell ruby"
+          "label": "Run shell node"
         }
       }
     },

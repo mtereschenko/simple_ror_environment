@@ -20,11 +20,16 @@
   make start
   ```
 
-* This command "teleports" you to the command shell where you can execute **rails**, **rake**, **bundle**, etc. commands.
+* This command runs the actually the app. 
+  ```bash
+  make run
+  ```
+
+* This command "teleports" you to the command shell where you can execute **node**, **npm**, **ng**, etc. commands.
   ```bash
   make shell
   ```
 
-To run rails server run **make shell** then **bin/rails s -p 3000 --binding=0.0.0.0**
+To run angular server run  **make run** or **make shell** then **ng serve --host 0.0.0.0 --disable-host-check**
 
 After that your project will be able to visit by `http://${PROJECT_NAME}.localhost`. By default, it's `http://test_project.localhost`.

@@ -12,7 +12,7 @@ ARTIFACTS_DIRECTORY := "./artifacts"
 
 CURRENT_PATH :=${abspath .}
 
-SHELL_CONTAINER_NAME := $(if $(c),$(c),ruby)
+SHELL_CONTAINER_NAME := $(if $(c),$(c),node)
 BUILD_TARGET := $(if $(t),$(t),development)
 
 help: ## Help.
@@ -22,14 +22,11 @@ init: ## Project installation.
 	@rm -f ./.env
 	@cp .env.example .env
 	@make init_app_directory
-	@make create_postgress_volume
 	@docker-compose -f docker-compose.init.yml build
 	@docker-compose -f docker-compose.init.yml up
 
 build: ## Build images.
 	@make create_project_artifacts
-	@cp ${APP_PATH}/Gemfile "${ARTIFACTS_DIRECTORY}/rails/Gemfile"
-	@cp ${APP_PATH}/Gemfile.lock "${ARTIFACTS_DIRECTORY}/rails/Gemfile.lock"
 	@docker-compose -f docker-compose.$(BUILD_TARGET).yml build
 
 shell: ## Internal image bash command line.
@@ -41,25 +38,17 @@ shell: ## Internal image bash command line.
 	
 start: ## Start previously builded application images.
 	@make create_project_artifacts
-	@make start_postgres
-	@make start_ruby
+	@make start_node
 	@make start_nginx
 
 run: ## Run ruby debugger session.
-	@docker-compose -f docker-compose.$(BUILD_TARGET).yml exec ruby /bin/ash /rdebug_ide/runner.sh
+	@docker-compose -f docker-compose.$(BUILD_TARGET).yml exec node /bin/ash /entrypoint/runner.sh
 
-start_ruby: ## Start ruby image.
-	@if [[ -z `docker ps | grep ruby` ]]; then \
-		docker-compose -f docker-compose.$(BUILD_TARGET).yml up -d ruby; \
+start_node: ## Start node image.
+	@if [[ -z `docker ps | grep node` ]]; then \
+		docker-compose -f docker-compose.$(BUILD_TARGET).yml up -d node; \
 	else \
-		echo "Ruby is running."; \
-	fi
-
-start_postgres: ## Start postgres image.
-	@if [[ -z `docker ps | grep postgres` ]]; then \
-		docker-compose -f docker-compose.$(BUILD_TARGET).yml up -d postgres; \
-	else \
-		echo "Postgres is running."; \
+		echo "Node is running."; \
 	fi
 
 start_nginx: ## Start nginx image.
@@ -73,11 +62,7 @@ stop: ## Stop all images.
 	@docker-compose -f docker-compose.$(BUILD_TARGET).yml stop
 
 create_project_artifacts:
-	mkdir -p ./artifacts/rails
-	mkdir -p ./artifacts/db
+	mkdir -p ./artifacts/node
 
 init_app_directory:
 	@mkdir -p ${APP_PATH}
-
-create_postgress_volume:
-	@sed -i '' -r  "s/postgres_volume:/${PROJECT_NAME}_db_volume:/g" docker-compose.development.yml
